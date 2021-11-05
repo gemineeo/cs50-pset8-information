@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+    <h1 style="margin-bottom: 50px">Sell</h1>
+    <form action="/sell" method="post">
+        <div class="form-group">
+            <select class="form-control" name="symbol" id="symbol">
+                <option value="">Choose here</option>
+                {% for row in rows %}
+                    <option value="{{ row["symbol"] }}">{{ row["symbol"].upper() }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" class="form-control" name="shares" placeholder="Nb of shares" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Sell</button>
+    </form>
+{% endblock %}

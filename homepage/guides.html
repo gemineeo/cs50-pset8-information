@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>City Guide</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+	<header>
+		<div id="title">
+			<a href="index.html">City Guide</a>
+		</div>
+		<div id="links">
+			<a href="guides.html">Guides</a>
+			<a href="about.html">About</a>
+			<a href="contact.html">Contact</a>
+		</div>
+	</header>
+	<div id="content">
+		<h2>Select your destination.</h2>
+		<select>
+			<option value="default" selected>Select</option>
+			<option value="paris">Paris</option>
+			<option value="london">London</option>
+			<option value="madrid">Madrid</option>
+		</select>
+		<div id="city-guide"></div>
+	</div>
+	<script>
+		document.querySelector('select').onchange = function() {
+			let city = document.querySelector('select').value;
+			document.querySelector('#city-guide').style.visibility = 'visible';
+			if (city === 'paris') {
+				document.querySelector('#city-guide').innerHTML = 'The city of love.';
+			}
+			else if (city === 'london') {
+				document.querySelector('#city-guide').innerHTML = 'The city of rain.';
+			}
+			else if (city === 'madrid') {
+				document.querySelector('#city-guide').innerHTML = 'The city of sun.';
+			}
+			else {
+				document.querySelector('#city-guide').style.visibility = 'hidden';
+			}
+		}
+	</script>
+</body>
+</html>

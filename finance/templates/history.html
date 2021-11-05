@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Transactions
+{% endblock %}
+
+{% block main %}
+    <h1 style="margin-bottom: 50px">Transactions</h1>
+    <div>
+        <table class="table table-striped" style="width:100%">
+            <th>Timestamp</th>
+            <th>Type</th>
+            <th>Symbol</th>
+            <th>Shares</th>
+            <th>Amount</th>
+            {% for row in rows %}
+                <tr>
+                    <td>{{ row["timestamp"] }}</td>
+                    <td>{{ row["transac_type"] }}</td>
+                    <td>{{ row["symbol"].upper() }}</td>
+                    <td>{{ row["shares"] }}</td>
+                    <td>{{ row["amount"] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
